@@ -63,8 +63,7 @@ def main():
         else:
             axis_data = data['accel_z']
 
-        axis_data = abs(axis_data)
-        median_magnitude = axis_data.median()
+        median_magnitude = axis_data.max() - axis_data.min()
 
         current_toff = int(parameters.split('_')[2].split('=')[1])
         results.append({'file_name': csv_file, 'median_magnitude': median_magnitude, 'parameters': parameters,
